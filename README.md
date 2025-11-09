@@ -25,7 +25,7 @@ Management suspects that some employees may be using TOR browsers to bypass netw
 
 ### 1. Searched the `DeviceFileEvents` Table
 
-Searched the DeviceFileEvents table for ANY file that had the string ‘tor’ in it and discovered what looks like the user “Cyberlearner” (employee) downloaded a tor installer, did something that resulted in many tor-related files being copied to the desktop and creation of a file called “tor-shopping-list.txt” on the desktop at 2025-11-07T20:04:54.817508Z. These events began at: 2025-11-07T19:19:24.4469712Z.
+Searched the **DeviceFileEvents** table for ANY file that had the string ‘tor’ in it and discovered what looks like the user **“Cyberlearner”** downloaded a tor installer, did something that resulted in many tor-related files being copied to the desktop and creation of a file called **“tor-shopping-list.txt”** on the desktop at **2025-11-07T20:04:54.817508Z**. These events began at: **2025-11-07T19:19:24.4469712Z**.
 
 **Query used to locate events:**
 
@@ -44,7 +44,7 @@ DeviceFileEvents
 
 ### 2. Searched the `DeviceProcessEvents` Table
 
-Searched the DeviceProcessEvents table for any ProcessCommandLine that contains the string “tor-browser-windows-x86_64-portable-15.0.exe”. Based on the logs returned, at 2025-11-07T19:21:49.1665888Z, an employee on the “threat-hunt-lab” device ran the file tor-browser-windows-x86_64-portable-15.0.exe from their Downloads folder, using a command that triggered a silent installation.
+Searched the **DeviceProcessEvents** table for any **ProcessCommandLine** that contains the string “tor-browser-windows-x86_64-portable-15.0.exe”. Based on the logs returned, at **2025-11-07T19:21:49.1665888Z**, an employee on the “threat-hunt-lab” device ran the file **tor-browser-windows-x86_64-portable-15.0.exe** from their Downloads folder, using a command that triggered a silent installation.
 
 **Query used to locate event:**
 
@@ -61,7 +61,7 @@ DeviceProcessEvents
 
 ### 3. Searched the `DeviceProcessEvents` Table for TOR Browser Execution
 
-Searched the DeviceProcessEvents table for any indication that “Cyberlearner” (employee) actually opened the tor browser. There was evidence that they did open it at 2025-11-07T19:22:19.0031004Z. There were several other instances of firefox.exe (Tor) as well as tor.exe spawned afterwards.
+Searched the **DeviceProcessEvents** table for any indication that “Cyberlearner” actually opened the tor browser. There was evidence that they did open it at **2025-11-07T19:22:19.0031004Z**. There were several other instances of **firefox.exe** (TOR) as well as **tor.exe** spawned afterwards.
 Query to locate events:
 
 **Query used to locate events:**
@@ -80,7 +80,7 @@ DeviceProcessEvents
 
 ### 4. Searched the `DeviceNetworkEvents` Table for TOR Network Connections
 
-Searched the DeviceNetworkEvents table for any indication the tor browser was used to establish a connection using any of known tor ports. At 2025-11-07T19:23:18.853709Z, an employee on the “threat-hunt-lab” device successfully established a connection to the remote IP address 152.53.34.99 on port 9001. The connection was initiated by the process tor.exe, located in the folder c:\users\cyberlearner\desktop\tor browser\browser\torbrowser\tor\tor.exe. There were a few other connections to sites over port 443.
+Searched the DeviceNetworkEvents table for any indication the tor browser was used to establish a connection using any of known tor ports. At **2025-11-07T19:23:18.853709Z**, an employee on the “threat-hunt-lab” device successfully established a connection to the remote IP address **152.53.34.99** on port **9001**. The connection was initiated by the process **tor.exe**, located in the folder **c:\users\cyberlearner\desktop\tor browser\browser\torbrowser\tor\tor.exe.** There were a few other connections to sites over port **443.**
 
 **Query used to locate events:**
 
@@ -133,8 +133,11 @@ DeviceNetworkEvents
 ### 5. Additional Network Connections - TOR Browser Activity
 
 - **Timestamp:**
+  
 2025-11-07T12:23:00Z - Connected to 64.65.62.101 on port 443.
+
 2025-11-07T12:23:00Z - Local connection to 127.0.0.1 on port 9150.
+
 - **Event:** Additional TOR network connections were established, indicating ongoing activity by user “Cyberlearner” through the TOR browser.
 - **Action:** Multiple successful connections detected.
 
